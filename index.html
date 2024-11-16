@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rastreamento de Comentários e Categorias</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        .category {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Acompanhamento de Comentários e Categorias</h1>
+
+    <div class="category">
+        <h2>Categoria 1: Previdenciário</h2>
+        <p><strong>Planejamento Previdenciário – L&L Consultoria (2022)</strong></p>
+        <p>Empresa especializada em assessoria consultiva quanto aos benefícios do INSS, incluindo planejamento previdenciário comum e estratégico, processo administrativo para solicitação de benefício, e ajustes de CNIS.</p>
+        <a href="https://mercosan.my.canva.site/planejamento-previdenciario" target="_blank">L&L Consultoria</a>
+        <textarea id="commentPrevidenciario" placeholder="Comentários sobre Previdenciário..."></textarea>
+    </div>
+
+    <div class="category">
+        <h2>Categoria 2: Desenvolvimento Pessoal</h2>
+        <p><strong>1,2,3 Novo de Novo (2015)</strong></p>
+        <p>Empresa especializada em revitalização de ambientes e materiais impregnados por mofo e bolor.</p>
+        <a href="http://exemplo.com/novodenovo" target="_blank">Exemplo Novo de Novo</a>
+        <textarea id="commentNovoDeNovo" placeholder="Comentários sobre Novo de Novo..."></textarea>
+
+        <p><strong>Novo Ser Humano Digital (2021)</strong></p>
+        <p>Programa de desenvolvimento pessoal focado em ajudar pessoas na nova era digital, com cursos abordando temas como luto, separação, e produtividade.</p>
+        <a href="https://chk.eduzz.com/984222" target="_blank">Novo Ser Humano Digital</a>
+        <textarea id="commentNovoSerHumanoDigital" placeholder="Comentários sobre Novo Ser Humano Digital..."></textarea>
+
+        <p><strong>Academia Simplifique-se (2022)</strong></p>
+        <p>Produto online criado para pessoas com potencial, mas pouco conhecimento de marketing digital. Oferece um passo a passo desde autoconhecimento até automação de vendas.</p>
+        <a href="https://chk.eduzz.com/1903965" target="_blank">Academia Simplifique-se</a>
+        <textarea id="commentAcademiaSimplifiqueSe" placeholder="Comentários sobre Academia Simplifique-se..."></textarea>
+    </div>
+
+    <div class="category">
+        <h2>Categoria 3: Terapia Digital</h2>
+        <p><strong>Terapia Digital 3R</strong></p>
+        <p>Programa que combina ressignificação, reprocessamento, e reprogramação, utilizando materiais dos programas Novo Ser Humano Digital e Academia Simplifique-se. Inclui sessões de terapia de Reprocessamento Generativo.</p>
+        <textarea id="commentTerapiaDigital" placeholder="Comentários sobre Terapia Digital..."></textarea>
+    </div>
+
+    <div class="category">
+        <h2>Categoria 4: Ambiental</h2>
+        <p><strong>Mercosan Ambiental (2016)</strong></p>
+        <p>Empresa fabricante de equipamentos compactos para reaproveitamento de água e tratamento de esgoto, incorporando atividades de revitalização de materiais.</p>
+        <a href="http://exemplo.com/mercosan" target="_blank">Exemplo Mercosan</a>
+        <textarea id="commentMercosan" placeholder="Comentários sobre Mercosan Ambiental..."></textarea>
+    </div>
+
+    <div class="category">
+        <h2>Categoria 5: Pinglasses</h2>
+        <p><strong>Pinglasses (2019)</strong></p>
+        <p>Patente de suporte para óculos em formato de mini óculos, com possibilidades de venda em displays ou parcerias com fabricantes de óculos.</p>
+        <a href="http://exemplo.com/pinglasses" target="_blank">Exemplo Pinglasses</a>
+        <textarea id="commentPinglasses" placeholder="Comentários sobre Pinglasses..."></textarea>
+    </div>
+
+    <div class="category">
+        <h2>Categoria 6: Educação</h2>
+        <p><strong>Educação Avançada (2020)</strong></p>
+        <p>Programas educacionais avançados focados em inovação e tecnologia para preparar estudantes para o futuro.</p>
+        <a href="http://exemplo.com/educacao" target="_blank">Exemplo Educação</a>
+        <textarea id="commentEducacao" placeholder="Comentários sobre Educação..."></textarea>
+    </div>
+
+    <div class="category">
+        <h2>Categoria 7: Tecnologia</h2>
+        <p><strong>InovaTech (2023)</strong></p>
+        <p>Empresa de tecnologia que desenvolve soluções inovadoras para o mercado global, focando em inteligência artificial e automação.</p>
+        <a href="http://exemplo.com/inovatech" target="_blank">Exemplo InovaTech</a>
+        <textarea id="commentTecnologia" placeholder="Comentários sobre Tecnologia..."></textarea>
+    </div>
+
+    <button onclick="saveAllComments()">Salvar Todos os Comentários</button>
+    <button onclick="loadAllComments()">Carregar Todos os Comentários</button>
+
+    <script>
+        function saveAllComments() {
+            const comments = {
+                previdenciario: document.getElementById('commentPrevidenciario').value,
+                novoDeNovo: document.getElementById('commentNovoDeNovo').value,
+                novoSerHumanoDigital: document.getElementById('commentNovoSerHumanoDigital').value,
+                academiaSimplifiqueSe: document.getElementById('commentAcademiaSimplifiqueSe').value,
+                terapiaDigital: document.getElementById('commentTerapiaDigital').value,
+                mercosan: document.getElementById('commentMercosan').value,
+                pinglasses: document.getElementById('commentPinglasses').value,
+                educacao: document.getElementById('commentEducacao').value,
+                tecnologia: document.getElementById('commentTecnologia').value
+            };
+            localStorage.setItem('allComments', JSON.stringify(comments));
+            alert('Todos os comentários foram salvos com sucesso!');
+        }
+
+        function loadAllComments() {
+            const savedComments = JSON.parse(localStorage.getItem('allComments'));
+            if (savedComments) {
+                document.getElementById('commentPrevidenciario').value = savedComments.previdenciario || '';
+                document.getElementById('commentNovoDeNovo').value = savedComments.novoDeNovo || '';
+                document.getElementById('commentNovoSerHumanoDigital').value = savedComments.novoSerHumanoDigital || '';
+                document.getElementById('commentAcademiaSimplifiqueSe').value = savedComments.academiaSimplifiqueSe || '';
+                document.getElementById('commentTerapiaDigital').value = savedComments.terapiaDigital || '';
+                document.getElementById('commentMercosan').value = savedComments.mercosan || '';
+                document.getElementById('commentPinglasses').value = savedComments.pinglasses || '';
+                document.getElementById('commentEducacao').value = savedComments.educacao || '';
+                document.getElementById('commentTecnologia').value = savedComments.tecnologia || '';
+                alert('Todos os comentários foram carregados com sucesso!');
+            } else {
+                alert('Nenhum comentário salvo encontrado.');
+            }
+        }
+    </script>
+</body>
+</html>
